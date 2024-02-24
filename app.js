@@ -7,10 +7,10 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 
-app.get('/api', controller.read);
-app.post('/api', controller.create);
-app.patch('/api', controller.update);
-app.delete('/api', controller.destroy);
+app.get('/', controller.read);
+app.post('/', controller.create);
+app.patch('/', controller.update);
+app.delete('/', controller.destroy);
 
 app.all('*', (req, res) => {
 	res.status(404).json({
