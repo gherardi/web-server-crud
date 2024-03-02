@@ -11,7 +11,9 @@ app.get('/', controller.read);
 app.get("/:id", controller.readById);
 app.post('/', controller.create);
 app.patch('/:id', controller.update);
+app.put("/:id", controller.update);
 app.delete('/:id', controller.destroy);
+app.options("/", controller.options);
 
 app.all('*', (req, res) => {
 	res.status(404).json({
@@ -21,3 +23,8 @@ app.all('*', (req, res) => {
 });
 
 export default app;
+
+
+// gestire xml
+// correggere codice stato per delete e altri
+// gestire errori
