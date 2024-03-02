@@ -8,9 +8,10 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.get('/', controller.read);
+app.get("/:id", controller.readById);
 app.post('/', controller.create);
-app.patch('/', controller.update);
-app.delete('/', controller.destroy);
+app.patch('/:id', controller.update);
+app.delete('/:id', controller.destroy);
 
 app.all('*', (req, res) => {
 	res.status(404).json({
